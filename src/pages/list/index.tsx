@@ -18,7 +18,7 @@ export default function RoutedComponent() {
   return (
     <main className="flex flex-col h-screen w-screen items-center justify-between p-6">
       <div id='hi' className='flex flex-col items-center justify-around content-center h-full w-full rounded-lg shadow-lg' >
-        <p >{names[i]}&quot;s Target is</p>
+        <p >{names[i]}&#39;s Target is</p>
         <p >{i === names.length - 1 ? names[0] : names[i + 1]}</p>
         <div className='flex justify-around w-full' >
           <Button variant='outlined' disabled={i === 0} onClick={() => setI(i - 1)}>back</Button>
