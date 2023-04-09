@@ -3,6 +3,8 @@ import TextField from '@mui/material/TextField';
 import { useState, useRef } from 'react';
 import { Button, IconButton } from '@mui/material';
 import DeleteOutline from '@mui/icons-material/DeleteOutline';
+import Link from 'next/link';
+import { shuffleArray } from '@/utils';
 
 export default function Home() {
   const [names, setNames] = useState<string[]>(['', '', ''])
@@ -51,7 +53,7 @@ export default function Home() {
           onClick={() => setNames([...names, ''])}
         > + </Button>
       </div>
-      <div className="fixed bottom-0 right-0 m-4">
+      <Link passHref href={{ pathname: '/list', query: { data: JSON.stringify(names.map(f => f.trim())) } }} className="fixed bottom-0 right-0 m-4">
         <Button
           color='success'
           variant='outlined'
@@ -59,7 +61,7 @@ export default function Home() {
         >
           Start
         </Button>
-      </div>
+      </Link>
     </main >
   )
 }
