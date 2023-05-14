@@ -15,14 +15,14 @@ export default function List() {
     const { data } = getQueryStringParams(window.location.search);
     if (data !== undefined) {
       const list = JSON.parse(data) as string[]
-      const listParam = list.map((n,i)=>{
-        const target = i === list.length -1 ? list[0] : list[i+1]
+      const suffledList = shuffleArray(list)
+      const listParam = suffledList.map((n,i)=>{
+        const target = i === list.length - 1 ? list[0] : list[i+1]
         const name = n.toUpperCase()
         return { name, target }
       })
-      const suffledList = shuffleArray(listParam)
-      console.log(suffledList)
-      setNames(suffledList)
+      const suffledParam = shuffleArray(listParam)
+      setNames(suffledParam)
     }
   }, []);
 
